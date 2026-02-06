@@ -1,35 +1,19 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { categoryStyles, type Category } from "@/lib/content";
 
 interface ConceptCardProps {
   title: string;
   excerpt: string;
-  category: "mente" | "cuerpo" | "espiritu";
+  category: Category;
   slug: string;
   date: string;
   imageUrl?: string;
 }
-
-const categoryStyles = {
-  mente: {
-    bg: "bg-mente/10",
-    text: "text-mente",
-    label: "Mente",
-  },
-  cuerpo: {
-    bg: "bg-cuerpo/10",
-    text: "text-cuerpo",
-    label: "Cuerpo",
-  },
-  espiritu: {
-    bg: "bg-espíritu/10",
-    text: "text-espíritu",
-    label: "Espíritu",
-  },
-};
 
 export default function ConceptCard({
   title,
@@ -54,18 +38,22 @@ export default function ConceptCard({
       >
         {/* Image Container */}
         <div className="relative aspect-video bg-stone-100 overflow-hidden">
-          {imageUrl ? (
-            <img
+          {imageUrl && imageUrl.length > 0 ? (
+            <Image
               src={imageUrl}
               alt={title}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center bg-stone-200">
-              <div className="w-16 h-16 rounded-full bg-stone-300/50" />
+            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-stone-100 to-stone-200">
+              <div
+                className="w-16 h-16 rounded-full opacity-30"
+                style={{ backgroundColor: styles.color }}
+              />
             </div>
           )}
-          
+
           {/* Category Badge */}
           <div className="absolute top-4 left-4">
             <span

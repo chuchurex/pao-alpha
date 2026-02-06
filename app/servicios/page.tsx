@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Calendar, Users, Check, Sparkles, ArrowRight } from "lucide-react";
+import { featuredWorkshop, getWhatsappLink } from "@/lib/content";
 
 export default function ServiciosPage() {
   return (
@@ -52,7 +53,7 @@ export default function ServiciosPage() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                href="https://wa.me/56999396166?text=Hola%20Paola,%20quiero%20reservar%20mi%20lugar%20para%20el%20workshop%20Vida%20Consciente"
+                href={getWhatsappLink("workshop")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 py-4 bg-primary text-white font-sans font-medium rounded-full hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
@@ -107,7 +108,7 @@ export default function ServiciosPage() {
               </ul>
 
               <Link
-                href="https://wa.me/56999396166?text=Hola%20Paola,%20quiero%20agendar%20una%20sesión%20de%20mentoring"
+                href={getWhatsappLink("mentoring")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-mente text-white font-sans font-medium rounded-full hover:bg-mente/90 transition-colors"
@@ -132,10 +133,10 @@ export default function ServiciosPage() {
       </section>
 
       {/* Section 3 - Tarot Consciente */}
-      <section className="py-20 px-4 md:px-8 bg-espíritu/5">
+      <section className="py-20 px-4 md:px-8 bg-espiritu/5">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-espíritu/10 flex items-center justify-center">
-            <Sparkles className="w-8 h-8 text-espíritu" />
+          <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-espiritu/10 flex items-center justify-center">
+            <Sparkles className="w-8 h-8 text-espiritu" />
           </div>
 
           <h2 className="font-serif text-3xl md:text-4xl text-ink mb-4">
@@ -149,10 +150,10 @@ export default function ServiciosPage() {
           </p>
 
           <Link
-            href="https://wa.me/56999396166?text=Hola%20Paola,%20quiero%20consultar%20disponibilidad%20para%20tarot"
+            href={getWhatsappLink("tarot")}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-espíritu text-white font-sans font-medium rounded-full hover:bg-espíritu/90 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-espiritu text-white font-sans font-medium rounded-full hover:bg-espiritu/90 transition-colors"
           >
             Consultar disponibilidad
             <ArrowRight className="w-4 h-4" />

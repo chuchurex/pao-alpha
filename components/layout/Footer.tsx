@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Youtube, Instagram, MessageCircle } from "lucide-react";
+import { socialLinks, getWhatsappLink } from "@/lib/content";
 
 const navLinks = [
   { href: "/", label: "Inicio" },
@@ -11,19 +12,19 @@ const navLinks = [
   { href: "/sobre-mi", label: "Sobre mí" },
 ];
 
-const socialLinks = [
+const socialIcons = [
   {
-    href: "https://youtube.com",
+    href: socialLinks.youtube,
     label: "YouTube",
     icon: Youtube,
   },
   {
-    href: "https://instagram.com/paolarioseco",
+    href: socialLinks.instagram,
     label: "Instagram",
     icon: Instagram,
   },
   {
-    href: "https://wa.me/56999396166",
+    href: socialLinks.whatsapp,
     label: "WhatsApp",
     icon: MessageCircle,
   },
@@ -37,7 +38,7 @@ export default function Footer() {
         <div className="max-w-4xl mx-auto px-4 md:px-8 py-12 text-center">
           <p className="text-white/60 text-sm mb-3">¿Listo para tu transformación?</p>
           <Link
-            href="https://wa.me/56999396166"
+            href={getWhatsappLink("general")}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white text-sm font-medium rounded-full hover:bg-primary/90 transition-colors"
@@ -78,22 +79,22 @@ export default function Footer() {
           {/* Contact */}
           <div className="space-y-2 text-sm">
             <a
-              href="tel:+56999396166"
+              href={`tel:${socialLinks.phone}`}
               className="block text-white/70 hover:text-white transition-colors"
             >
               +569 99396166
             </a>
             <a
-              href="mailto:paola@paolarioseco.com"
+              href={`mailto:${socialLinks.email}`}
               className="block text-white/70 hover:text-white transition-colors"
             >
-              paola@paolarioseco.com
+              {socialLinks.email}
             </a>
           </div>
 
           {/* Social Links */}
           <div className="flex items-center gap-4">
-            {socialLinks.map((social) => {
+            {socialIcons.map((social) => {
               const Icon = social.icon;
               return (
                 <a
